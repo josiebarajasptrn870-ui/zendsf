@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service · Zenthra Nature Canvas</title>
+  <!-- modern serif + sans, unique palette: deep moss, clay, soft sand -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet" />
+  <style>
+    /* ----- reset & base (mirroring index) ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f7f2eb; /* soft sand */
+      color: #2d3e2f; /* deep moss */
+      font-family: 'Inter', sans-serif;
+      line-height: 1.7;
+      padding: 0 1rem;
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      background: #fcf9f5;
+      box-shadow: 0 20px 40px rgba(45, 62, 47, 0.06);
+      border-radius: 2rem 2rem 0 0;
+      padding: 1.8rem 2.2rem 0.5rem;
+    }
+
+    /* ----- typography ----- */
+    h1, h2, h3, h4 {
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+      color: #1f2e21;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.4rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin: 2.2rem 0 0.8rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 3px solid #d8c9b4; /* clay accent */
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin: 1.8rem 0 0.4rem;
+      font-weight: 600;
+    }
+
+    p {
+      margin-bottom: 1.25rem;
+      font-size: 1.08rem;
+      max-width: 70ch;
+    }
+
+    .small-meta {
+      font-size: 0.9rem;
+      color: #5e6f5b;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    a {
+      color: #3f6b3c;
+      text-decoration: none;
+      border-bottom: 1px dotted #b8aa97;
+      transition: border 0.2s;
+    }
+
+    a:hover {
+      border-bottom: 2px solid #2f4d2c;
+    }
+
+    /* ----- header / nav (identical to index) ----- */
+    .blog-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 0.5rem 0 0.2rem;
+      border-bottom: 1px solid #e5dbd0;
+      margin-bottom: 2.4rem;
+    }
+
+    .logo {
+      font-family: 'Merriweather', serif;
+      font-size: 1.9rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #1f3d22;
+      background: #e1d5c4;
+      padding: 0.1rem 1rem 0.1rem 1.2rem;
+      border-radius: 40px 8px 8px 40px;
+      display: inline-block;
+    }
+
+    .logo span {
+      font-weight: 400;
+      color: #4f3f2e;
+      font-size: 0.9rem;
+      margin-left: 0.25rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      font-weight: 500;
+      font-size: 1rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      border-bottom: none;
+      color: #324d32;
+    }
+
+    .nav-links a:hover {
+      border-bottom: 2px solid #9b8a77;
+    }
+
+    /* ----- terms specific (legal-like, but warm) ----- */
+    .terms-hero {
+      padding: 0.8rem 0 1.2rem;
+    }
+
+    .terms-hero h1 {
+      font-size: 3rem;
+      max-width: 16ch;
+    }
+
+    .terms-hero .lead {
+      font-size: 1.2rem;
+      font-weight: 400;
+      max-width: 70ch;
+      margin: 1rem 0 1.8rem;
+      color: #3b503b;
+      border-left: 5px solid #b8aa97;
+      padding-left: 1.5rem;
+    }
+
+    .terms-section {
+      margin: 2rem 0 1.8rem;
+    }
+
+    .terms-section h2 {
+      margin-top: 2.2rem;
+      border-bottom: 2px solid #d8cdbc;
+    }
+
+    .terms-section h3 {
+      font-size: 1.3rem;
+      margin: 1.6rem 0 0.2rem;
+      font-weight: 600;
+    }
+
+    .terms-section ul {
+      margin: 0.5rem 0 1.2rem 1.8rem;
+      list-style: square;
+      color: #2d3e2f;
+    }
+
+    .terms-section li {
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+    }
+
+    .legal-note {
+      background: #f1ebe3;
+      padding: 1.2rem 2rem;
+      border-radius: 40px 4px 40px 4px;
+      margin: 2rem 0 1rem;
+      font-size: 1rem;
+      color: #2d402b;
+      border-left: 6px solid #b8aa97;
+    }
+
+    .legal-note strong {
+      font-weight: 600;
+      color: #1f311f;
+    }
+
+    /* newsletter & footer (matching index) */
+    .newsletter-box {
+      background: #e6dbce;
+      border-radius: 48px 8px 48px 8px;
+      padding: 2rem 2.5rem;
+      margin: 3rem 0 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .newsletter-box h3 {
+      font-family: 'Merriweather', serif;
+      margin: 0;
+      font-size: 1.8rem;
+    }
+
+    .newsletter-box .sub {
+      font-size: 1rem;
+      max-width: 30ch;
+    }
+
+    .newsletter-box input {
+      border: none;
+      padding: 0.8rem 1.2rem;
+      border-radius: 60px;
+      min-width: 220px;
+      background: #fcf9f5;
+      font-size: 1rem;
+      margin: 0.5rem 0;
+    }
+
+    .newsletter-box button {
+      background: #2d462b;
+      border: none;
+      color: white;
+      padding: 0.8rem 2rem;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.1s;
+      margin: 0.5rem 0;
+    }
+
+    .newsletter-box button:hover {
+      background: #1f311f;
+    }
+
+    .footer {
+      margin-top: 3.5rem;
+      padding: 1.8rem 0 1.2rem;
+      border-top: 1px solid #d8cdbc;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      color: #4b5d47;
+    }
+
+    /* responsive */
+    @media (max-width: 700px) {
+      .container { padding: 0.8rem 1rem; }
+      h1 { font-size: 2.2rem; }
+      .terms-hero h1 { font-size: 2.4rem; }
+      .blog-header { flex-direction: column; gap: 0.5rem; }
+      .nav-links { gap: 1.2rem; flex-wrap: wrap; }
+      .newsletter-box { flex-direction: column; align-items: stretch; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- header (exactly as index) -->
+  <header class="blog-header">
+    <div class="logo">Zenthra<span>nature canvas</span></div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="terms.html">Terms Of Privacy</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="cookies.html">Cookies Policy</a></li>
+    </ul>
+  </header>
+
+  <!-- TERMS HERO -->
+  <section class="terms-hero">
+    <h1>Terms of Service</h1>
+    <div class="lead">Welcome to Zenthra Nature Canvas. By using our site, you agree to these terms — they are designed to keep our community respectful, safe, and focused on growth.</div>
+  </section>
+
+  <!-- TERMS CONTENT -->
+  <div class="terms-section">
+    <h2>1. Our commitment to you</h2>
+    <p>Zenthra Nature Canvas is a space for learning, sharing, and cultivating ecological knowledge. We strive to provide accurate, thoughtful, and well-researched content. However, gardening and ecology involve variables beyond our control; we encourage you to use your own judgment and consult local experts when needed.</p>
+
+    <h2>2. Use of content</h2>
+    <p>All text, images, and graphics on this site are protected by copyright. You may:</p>
+    <ul>
+      <li>Read, share, and link to our articles for personal, non‑commercial use.</li>
+      <li>Quote short excerpts with proper attribution (link back to the original page).</li>
+    </ul>
+    <p>You may not reproduce, republish, or distribute substantial portions of our work without prior written permission. We believe in open knowledge, but we also believe in supporting the creators who make it possible.</p>
+
+    <h2>3. User contributions</h2>
+    <p>We welcome comments, questions, and guest contributions. By submitting content to Zenthra (via comments, email, or other channels), you grant us a non‑exclusive, royalty‑free license to publish and promote it. We reserve the right to edit for clarity, length, or tone. We do not tolerate hate speech, harassment, or misinformation.</p>
+
+    <h2>4. Privacy and data</h2>
+    <p>Your privacy matters to us. Our <a href="privacy.html">Privacy Policy</a> and <a href="cookies.html">Cookies Policy</a> explain how we handle any personal information. In short: we collect only what is necessary to improve your experience, and we never sell your data.</p>
+
+    <h2>5. External links</h2>
+    <p>We sometimes link to external websites for further reading. We are not responsible for the content, accuracy, or practices of those sites. We encourage you to review their terms and privacy policies.</p>
+
+    <h2>6. Disclaimer of warranties</h2>
+    <p>Zenthra Nature Canvas is provided “as is” without any express or implied warranties. We do our best to ensure accuracy, but we cannot guarantee that all information is error‑free. Gardening and ecological practices are context‑dependent — please adapt our suggestions to your specific conditions.</p>
+
+    <h2>7. Limitation of liability</h2>
+    <p>To the fullest extent permitted by law, Zenthra and its contributors are not liable for any direct, indirect, incidental, or consequential damages arising from your use of the site or reliance on any information provided.</p>
+
+    <h2>8. Changes to these terms</h2>
+    <p>We may update these terms occasionally. Any changes will be posted here with an updated “last revised” date. Continued use of the site constitutes acceptance of the current terms.</p>
+
+    <h2>9. Contact us</h2>
+    <p>If you have questions about these terms, please reach out via our <a href="contact.html">contact page</a>.</p>
+  </div>
+
+  <!-- legal note / effective date -->
+  <div class="legal-note">
+    <strong>📅 Last revised:</strong> 30 June 2026 · This policy is part of our commitment to transparency and trust.
+  </div>
+
+  <!-- NEWSLETTER (same as index) -->
+  <div class="newsletter-box">
+    <div>
+      <h3>Field notes</h3>
+      <div class="sub">Weekly essays, seasonal tips, and uncommon wisdom.</div>
+    </div>
+    <div>
+      <input type="email" placeholder="your email" />
+      <button>subscribe</button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>© 2026 Zenthra Nature Canvas · cultivated with care</div>
+    <div>
+      <a href="about.html">about</a> · 
+      <a href="#">writing</a> · 
+      <a href="contact.html">contact</a>
+    </div>
+  </footer>
+
+</div>
+<!-- end container -->
+</body>
+</html>
