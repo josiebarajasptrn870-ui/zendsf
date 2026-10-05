@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zenthra Nature Canvas · gardening authority</title>
+  <!-- modern serif + sans, unique palette: deep moss, clay, soft sand -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet" />
+  <style>
+    /* ----- reset & base ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f7f2eb; /* soft sand */
+      color: #2d3e2f; /* deep moss */
+      font-family: 'Inter', sans-serif;
+      line-height: 1.7;
+      padding: 0 1rem;
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      background: #fcf9f5;
+      box-shadow: 0 20px 40px rgba(45, 62, 47, 0.06);
+      border-radius: 2rem 2rem 0 0;
+      padding: 1.8rem 2.2rem 0.5rem;
+    }
+
+    /* ----- typography (unique mix) ----- */
+    h1, h2, h3, h4 {
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+      color: #1f2e21;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.4rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin: 2.2rem 0 0.8rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 3px solid #d8c9b4; /* clay accent */
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin: 1.8rem 0 0.4rem;
+      font-weight: 600;
+    }
+
+    p {
+      margin-bottom: 1.25rem;
+      font-size: 1.08rem;
+      max-width: 70ch;
+    }
+
+    .small-meta {
+      font-size: 0.9rem;
+      color: #5e6f5b;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    a {
+      color: #3f6b3c;
+      text-decoration: none;
+      border-bottom: 1px dotted #b8aa97;
+      transition: border 0.2s;
+    }
+
+    a:hover {
+      border-bottom: 2px solid #2f4d2c;
+    }
+
+    /* ----- header / nav (clean, minimal) ----- */
+    .blog-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 0.5rem 0 0.2rem;
+      border-bottom: 1px solid #e5dbd0;
+      margin-bottom: 2.4rem;
+    }
+
+    .logo {
+      font-family: 'Merriweather', serif;
+      font-size: 1.9rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #1f3d22;
+      background: #e1d5c4;
+      padding: 0.1rem 1rem 0.1rem 1.2rem;
+      border-radius: 40px 8px 8px 40px;
+      display: inline-block;
+    }
+
+    .logo span {
+      font-weight: 400;
+      color: #4f3f2e;
+      font-size: 0.9rem;
+      margin-left: 0.25rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      font-weight: 500;
+      font-size: 1rem;
+    }
+
+    .nav-links a {
+      border-bottom: none;
+      color: #324d32;
+    }
+
+    .nav-links a:hover {
+      border-bottom: 2px solid #9b8a77;
+    }
+
+    /* ----- hero (content-first, minimal visual) ----- */
+    .hero {
+      padding: 1.2rem 0 2.8rem;
+      background: transparent;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      max-width: 12ch;
+    }
+
+    .hero .lead {
+      font-size: 1.3rem;
+      font-weight: 400;
+      max-width: 70ch;
+      margin: 1rem 0 1.8rem;
+      color: #3b503b;
+      border-left: 5px solid #b8aa97;
+      padding-left: 1.5rem;
+    }
+
+    .hero-topic-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1.8rem;
+      margin-top: 1.2rem;
+    }
+
+    .hero-topic {
+      background: #eae1d5;
+      padding: 0.3rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #1f311f;
+    }
+
+    /* hero image (only one) */
+    .hero-img-wrapper {
+      margin: 2rem 0 0.5rem;
+      border-radius: 32px;
+      overflow: hidden;
+      background: #d8cdbc;
+      max-height: 200px;
+    }
+
+    .hero-img-wrapper img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      opacity: 0.9;
+    }
+
+    /* ----- cards (unique card design) ----- */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem 1.5rem;
+      margin: 2.2rem 0 1rem;
+    }
+
+    .blog-card {
+      background: #fcf9f5;
+      border-radius: 28px 8px 28px 8px;
+      padding: 1.6rem 1.8rem 1.8rem;
+      border: 1px solid #e6dbcf;
+      transition: 0.15s ease;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.01);
+    }
+
+    .blog-card:hover {
+      border-color: #b8a48b;
+      box-shadow: 0 12px 24px -12px rgba(60, 80, 50, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .blog-card .cat-tag {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      background: #dfd3c2;
+      padding: 0.1rem 0.8rem;
+      border-radius: 30px;
+      display: inline-block;
+      letter-spacing: 0.05em;
+      color: #2f402c;
+      font-weight: 600;
+    }
+
+    .blog-card h3 {
+      font-size: 1.35rem;
+      margin: 0.6rem 0 0.4rem;
+      font-family: 'Merriweather', serif;
+    }
+
+    .blog-card p {
+      font-size: 1rem;
+      margin-bottom: 0.6rem;
+      color: #3b4b38;
+    }
+
+    .blog-card .read-more {
+      font-weight: 500;
+      border-bottom: 1px solid #b8aa97;
+      font-size: 0.95rem;
+    }
+
+    /* featured article image (only one) */
+    .featured-image {
+      margin: 1.2rem 0 1.8rem;
+      border-radius: 24px;
+      overflow: hidden;
+      background: #d6cbbc;
+      max-height: 180px;
+    }
+
+    .featured-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* category image (small) */
+    .cat-image {
+      border-radius: 20px 4px 20px 4px;
+      overflow: hidden;
+      margin: 0.5rem 0 0.8rem;
+      max-height: 100px;
+      background: #cdbfae;
+    }
+
+    .cat-image img {
+      width: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* infographic optional */
+    .infographic-box {
+      background: #ede7dd;
+      border-radius: 28px 4px 28px 4px;
+      padding: 1.2rem 1.8rem;
+      margin: 2rem 0;
+      border-left: 8px solid #a6927b;
+      font-size: 1.05rem;
+    }
+
+    .infographic-box strong {
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+    }
+
+    /* ----- lists & tables (content rich) ----- */
+    ul, ol {
+      margin: 0.8rem 0 1.4rem 1.8rem;
+    }
+
+    li {
+      margin-bottom: 0.4rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.98rem;
+      background: #faf6f0;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    th {
+      background: #d6cbbc;
+      padding: 0.8rem 1rem;
+      text-align: left;
+      font-weight: 600;
+      color: #1f2e1f;
+    }
+
+    td {
+      padding: 0.7rem 1rem;
+      border-bottom: 1px solid #e1d5c6;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* FAQ schema-ready */
+    .faq-item {
+      border-bottom: 1px solid #dccfc0;
+      padding: 0.9rem 0;
+    }
+
+    .faq-item h4 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .faq-item p {
+      font-size: 1rem;
+      margin-bottom: 0;
+    }
+
+    /* newsletter */
+    .newsletter-box {
+      background: #e6dbce;
+      border-radius: 48px 8px 48px 8px;
+      padding: 2rem 2.5rem;
+      margin: 3rem 0 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .newsletter-box h3 {
+      font-family: 'Merriweather', serif;
+      margin: 0;
+      font-size: 1.8rem;
+    }
+
+    .newsletter-box .sub {
+      font-size: 1rem;
+      max-width: 30ch;
+    }
+
+    .newsletter-box input {
+      border: none;
+      padding: 0.8rem 1.2rem;
+      border-radius: 60px;
+      min-width: 220px;
+      background: #fcf9f5;
+      font-size: 1rem;
+      margin: 0.5rem 0;
+    }
+
+    .newsletter-box button {
+      background: #2d462b;
+      border: none;
+      color: white;
+      padding: 0.8rem 2rem;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.1s;
+      margin: 0.5rem 0;
+    }
+
+    .newsletter-box button:hover {
+      background: #1f311f;
+    }
+
+    /* footer */
+    .footer {
+      margin-top: 3.5rem;
+      padding: 1.8rem 0 1.2rem;
+      border-top: 1px solid #d8cdbc;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      color: #4b5d47;
+    }
+
+    /* responsive */
+    @media (max-width: 700px) {
+      .container { padding: 0.8rem 1rem; }
+      h1 { font-size: 2.2rem; }
+      .hero h1 { font-size: 2.4rem; }
+      .blog-header { flex-direction: column; gap: 0.5rem; }
+      .nav-links { gap: 1.2rem; flex-wrap: wrap; }
+      .newsletter-box { flex-direction: column; align-items: stretch; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- header -->
+  <header class="blog-header">
+    <div class="logo">Zenthra<span>nature canvas</span></div>
+    <div class="nav-links">
+      <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="terms.html">Terms Of Privacy</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+					<li><a href="cookies.html">Cookies Policy</a></li>
+    </div>
+  </header>
+
+  <!-- HERO (content-first, 1 image) -->
+  <section class="hero">
+    <h1>Gardening as living dialogue</h1>
+    <div class="lead">Deeply researched essays, practical field notes, and timeless wisdom for the soil-minded gardener.</div>
+    <div class="hero-topic-grid">
+      <span class="hero-topic">permaculture</span>
+      <span class="hero-topic">heirloom seeds</span>
+      <span class="hero-topic">soil health</span>
+      <span class="hero-topic">biodiversity</span>
+      <span class="hero-topic">seasonal rhythms</span>
+    </div>
+    <!-- hero image -->
+    <div class="hero-img-wrapper">
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='200' viewBox='0 0 800 200'%3E%3Crect width='800' height='200' fill='%23b8a48b'/%3E%3Cpath d='M120 140 Q180 60 240 120 Q300 70 360 130 Q420 80 480 140 Q540 90 600 130 Q660 70 720 120 L720 180 L120 180 Z' fill='%233b5e3a' opacity='0.3'/%3E%3Ccircle cx='200' cy='90' r='18' fill='%235f7a4a' opacity='0.5'/%3E%3Ccircle cx='500' cy='110' r='24' fill='%235f7a4a' opacity='0.4'/%3E%3C/svg%3E"
+           alt="Zenthra garden abstraction" />
+    </div>
+    <p style="margin-top:1.2rem; font-size:0.95rem; color:#4f6049;"><strong>Featured:</strong> 14 in‑depth articles · new perspectives on perennial systems</p>
+  </section>
+
+  <!-- FEATURED ARTICLES (card grid) -->
+  <h2>Featured long‑reads</h2>
+  <div class="card-grid">
+    <div class="blog-card">
+      <span class="cat-tag">soil</span>
+      <h3>The mycelial bridge: fungi and root intelligence</h3>
+      <p>How underground networks transform nutrient exchange and plant resilience. A deep dive into the wood-wide web.</p>
+      <a href="#" class="read-more">continue reading →</a>
+    </div>
+    <div class="blog-card">
+      <span class="cat-tag">design</span>
+      <h3>Stacking functions: polycultures that thrive</h3>
+      <p>Moving beyond rows: guild planting, companion dynamics, and edible forest gardens for temperate climates.</p>
+      <a href="#" class="read-more">continue reading →</a>
+    </div>
+    <div class="blog-card">
+      <span class="cat-tag">seeds</span>
+      <h3>Saving heirlooms: a legacy of flavour</h3>
+      <p>Practical seed stewardship, isolation techniques, and stories of varieties that shaped our food culture.</p>
+      <a href="#" class="read-more">continue reading →</a>
+    </div>
+  </div>
+
+  <!-- BEGINNER GUIDES + EXPERT RESOURCES (mixed) -->
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:2.5rem; margin:2rem 0;">
+    <div>
+      <h2>Beginner guides</h2>
+      <ul style="list-style: square; padding-left:1.2rem;">
+        <li><a href="#">Starting a no‑dig bed in 5 steps</a></li>
+        <li><a href="#">Reading your soil: texture, life, and pH</a></li>
+        <li><a href="#">Seed starting calendar for zone 6–8</a></li>
+        <li><a href="#">Compost fundamentals: hot vs cold</a></li>
+      </ul>
+      <div class="cat-image">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='100' viewBox='0 0 400 100'%3E%3Crect width='400' height='100' fill='%23bfb09b'/%3E%3Ccircle cx='80' cy='50' r='28' fill='%234a6b3f' opacity='0.5'/%3E%3Ccircle cx='280' cy='40' r='22' fill='%234a6b3f' opacity='0.4'/%3E%3C/svg%3E" alt="beginner guide visual" />
+      </div>
+    </div>
+    <div>
+      <h2>Expert resources</h2>
+      <ul style="list-style: square; padding-left:1.2rem;">
+        <li><a href="#">Designing for drought: water‑wise strategies</a></li>
+        <li><a href="#">Grafting and scion selection</a></li>
+        <li><a href="#">Biostimulants & microbial inoculants</a></li>
+        <li><a href="#">Carbon farming in the home garden</a></li>
+      </ul>
+      <!-- infographic image (optional) -->
+      <div class="infographic-box">
+        <strong>↳ infographic</strong> · nutrient mobility in plants — mobile vs immobile elements. <span style="background:#d6cbbc; padding:0.2rem 0.8rem; border-radius:30px;">download</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- POPULAR CATEGORIES + TRENDING (hybrid) -->
+  <h2>Categories &amp; trending</h2>
+  <div style="display:flex; flex-wrap:wrap; gap:1rem 2.5rem; margin:0.8rem 0 2rem;">
+    <span style="background:#e0d3c2; padding:0.2rem 1.4rem; border-radius:40px;">perennial vegetables</span>
+    <span style="background:#e0d3c2; padding:0.2rem 1.4rem; border-radius:40px;">native pollinators</span>
+    <span style="background:#e0d3c2; padding:0.2rem 1.4rem; border-radius:40px;">living mulches</span>
+    <span style="background:#e0d3c2; padding:0.2rem 1.4rem; border-radius:40px;">food forestry</span>
+    <span style="background:#e0d3c2; padding:0.2rem 1.4rem; border-radius:40px;">soil food web</span>
+  </div>
+
+  <!-- LATEST ARTICLES (2 columns) -->
+  <div style="display:grid; grid-template-columns:2fr 1fr; gap:2rem;">
+    <div>
+      <h2>Latest articles</h2>
+      <ul style="list-style: none; padding-left:0;">
+        <li style="border-bottom:1px solid #ece2d6; padding:0.8rem 0;"><a href="#"><strong>Pruning for structure and abundance</strong></a> <span style="color:#5e6f5b; font-size:0.9rem;">· 6 min read</span></li>
+        <li style="border-bottom:1px solid #ece2d6; padding:0.8rem 0;"><a href="#"><strong>Making biochar at small scale</strong></a> <span style="color:#5e6f5b; font-size:0.9rem;">· 4 min read</span></li>
+        <li style="border-bottom:1px solid #ece2d6; padding:0.8rem 0;"><a href="#"><strong>Garden phenology: tracking nature’s calendar</strong></a> <span style="color:#5e6f5b; font-size:0.9rem;">· 8 min read</span></li>
+      </ul>
+    </div>
+    <div>
+      <h2>In‑depth tutorials</h2>
+      <ul style="list-style: none; padding-left:0;">
+        <li style="border-bottom:1px solid #ece2d6; padding:0.5rem 0;"><a href="#">Building a wicking bed</a></li>
+        <li style="border-bottom:1px solid #ece2d6; padding:0.5rem 0;"><a href="#">Layering propagation</a></li>
+        <li style="border-bottom:1px solid #ece2d6; padding:0.5rem 0;"><a href="#">Solarizing for weed control</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- RESOURCE HUB (table) -->
+  <h2>Resource hub</h2>
+  <table>
+    <thead><tr><th>Resource</th><th>Type</th><th>Focus</th></tr></thead>
+    <tbody>
+      <tr><td>Perennial vegetable database</td><td>PDF</td><td>50+ species</td></tr>
+      <tr><td>Seed viability chart</td><td>Interactive</td><td>Storage life</td></tr>
+      <tr><td>Compost calculator</td><td>Tool</td><td>C:N ratios</td></tr>
+      <tr><td>Guild planting templates</td><td>Guide</td><td>Polycultures</td></tr>
+    </tbody>
+  </table>
+
+  <!-- FAQ SECTION (schema-ready content) -->
+  <h2>Frequently asked questions</h2>
+  <div class="faq-item">
+    <h4>What is no‑dig gardening and why does it matter?</h4>
+    <p>No‑dig preserves soil structure, reduces weed emergence, and fosters mycorrhizal networks. It’s a low‑disturbance approach that builds organic matter from the top down.</p>
+  </div>
+  <div class="faq-item">
+    <h4>How do I choose between heirloom and hybrid seeds?</h4>
+    <p>Heirlooms offer genetic diversity, flavour, and seed‑saving potential; hybrids often provide disease resistance. We recommend a mix tailored to your goals.</p>
+  </div>
+  <div class="faq-item">
+    <h4>What are the first steps in creating a food forest?</h4>
+    <p>Start with canopy trees, then understory, shrubs, herbaceous layers, and groundcovers. Focus on nitrogen‑fixers and dynamic accumulators for fertility.</p>
+  </div>
+
+  <!-- NEWSLETTER -->
+  <div class="newsletter-box">
+    <div>
+      <h3>Field notes</h3>
+      <div class="sub">Weekly essays, seasonal tips, and uncommon wisdom.</div>
+    </div>
+    <div>
+      <input type="email" placeholder="your email" />
+      <button>subscribe</button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>© 2026 Zenthra Nature Canvas · cultivated with care</div>
+    <div>
+      <a href="#">about</a> · 
+      <a href="#">writing</a> · 
+      <a href="#">contact</a>
+    </div>
+  </footer>
+
+</div>
+<!-- end container -->
+</body>
+</html>
