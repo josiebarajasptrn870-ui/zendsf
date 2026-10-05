@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zenthra Nature Canvas · privacy</title>
+  <!-- modern serif + sans, unique palette: deep moss, clay, soft sand -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet" />
+  <style>
+    /* ----- reset & base ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f7f2eb; /* soft sand */
+      color: #2d3e2f; /* deep moss */
+      font-family: 'Inter', sans-serif;
+      line-height: 1.7;
+      padding: 0 1rem;
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      background: #fcf9f5;
+      box-shadow: 0 20px 40px rgba(45, 62, 47, 0.06);
+      border-radius: 2rem 2rem 0 0;
+      padding: 1.8rem 2.2rem 0.5rem;
+    }
+
+    /* ----- typography (unique mix) ----- */
+    h1, h2, h3, h4 {
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+      color: #1f2e21;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.4rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin: 2.2rem 0 0.8rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 3px solid #d8c9b4; /* clay accent */
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin: 1.8rem 0 0.4rem;
+      font-weight: 600;
+    }
+
+    p {
+      margin-bottom: 1.25rem;
+      font-size: 1.08rem;
+      max-width: 70ch;
+    }
+
+    .small-meta {
+      font-size: 0.9rem;
+      color: #5e6f5b;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    a {
+      color: #3f6b3c;
+      text-decoration: none;
+      border-bottom: 1px dotted #b8aa97;
+      transition: border 0.2s;
+    }
+
+    a:hover {
+      border-bottom: 2px solid #2f4d2c;
+    }
+
+    /* ----- header / nav (clean, minimal) ----- */
+    .blog-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 0.5rem 0 0.2rem;
+      border-bottom: 1px solid #e5dbd0;
+      margin-bottom: 2.4rem;
+    }
+
+    .logo {
+      font-family: 'Merriweather', serif;
+      font-size: 1.9rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #1f3d22;
+      background: #e1d5c4;
+      padding: 0.1rem 1rem 0.1rem 1.2rem;
+      border-radius: 40px 8px 8px 40px;
+      display: inline-block;
+    }
+
+    .logo span {
+      font-weight: 400;
+      color: #4f3f2e;
+      font-size: 0.9rem;
+      margin-left: 0.25rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      font-weight: 500;
+      font-size: 1rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      border-bottom: none;
+      color: #324d32;
+    }
+
+    .nav-links a:hover {
+      border-bottom: 2px solid #9b8a77;
+    }
+
+    /* privacy page specific */
+    .privacy-hero {
+      padding: 1rem 0 1.2rem;
+    }
+
+    .privacy-card {
+      background: #f5efe8;
+      border-radius: 28px 8px 28px 8px;
+      padding: 1.8rem 2.2rem;
+      border: 1px solid #e2d4c4;
+      margin: 1.8rem 0 2rem;
+    }
+
+    .privacy-card h3 {
+      margin-top: 0.2rem;
+      font-size: 1.5rem;
+    }
+
+    .privacy-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .highlight-badge {
+      background: #dccfc0;
+      padding: 0.2rem 1.4rem;
+      border-radius: 60px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      display: inline-block;
+      letter-spacing: 0.02em;
+      color: #1f2e21;
+    }
+
+    .divider-leaf {
+      border: none;
+      height: 4px;
+      background: repeating-linear-gradient(90deg, #b8aa97, #b8aa97 10px, #e1d5c4 10px, #e1d5c4 20px);
+      margin: 2rem 0;
+      width: 80px;
+    }
+
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem 2rem;
+      margin: 1.2rem 0 0.8rem;
+    }
+
+    .grid-2col li {
+      list-style: none;
+      margin-bottom: 0.6rem;
+      padding-left: 1.6rem;
+      position: relative;
+    }
+
+    .grid-2col li::before {
+      content: "🌱";
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 1.1rem;
+    }
+
+    .footer {
+      margin-top: 3.5rem;
+      padding: 1.8rem 0 1.2rem;
+      border-top: 1px solid #d8cdbc;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      color: #4b5d47;
+    }
+
+    @media (max-width: 700px) {
+      .container { padding: 0.8rem 1rem; }
+      h1 { font-size: 2.2rem; }
+      .blog-header { flex-direction: column; gap: 0.5rem; }
+      .nav-links { gap: 1.2rem; flex-wrap: wrap; }
+      .grid-2col { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- header -->
+  <header class="blog-header">
+    <div class="logo">Zenthra<span>nature canvas</span></div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="terms.html">Terms Of Privacy</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="cookies.html">Cookies Policy</a></li>
+    </ul>
+  </header>
+
+  <!-- PRIVACY PAGE HERO -->
+  <section class="privacy-hero">
+    <h1>Privacy Policy</h1>
+    <p style="font-size:1.2rem; max-width:60ch; border-left:5px solid #b8aa97; padding-left:1.5rem;">
+      Your data is safe with us. We believe in transparency, simplicity, and respect for your digital footprint — just as we care for the soil.
+    </p>
+    <div style="margin-top: 1.2rem;">
+      <span class="highlight-badge">📅  last updated: 30 June 2026</span>
+      <span class="highlight-badge" style="margin-left:0.5rem;">🌿  version 2.1</span>
+    </div>
+  </section>
+
+  <!-- main privacy content -->
+  <div class="privacy-card">
+    <h3>Our commitment</h3>
+    <p>
+      At Zenthra Nature Canvas, we are committed to protecting your privacy. This policy explains how we collect, use, and safeguard your personal information when you visit our website, subscribe to our newsletter, or contact us. We never sell your data — and we only use it to make your experience better.
+    </p>
+  </div>
+
+  <!-- what we collect -->
+  <h2>What we collect</h2>
+  <div class="grid-2col">
+    <div>
+      <h3>🌱  Information you give us</h3>
+      <ul>
+        <li>Name and email address (via forms, newsletter, or comments)</li>
+        <li>Messages you send through our contact form</li>
+        <li>Any feedback or survey responses</li>
+      </ul>
+    </div>
+    <div>
+      <h3>🌿  Information we collect automatically</h3>
+      <ul>
+        <li>IP address and browser type (for analytics)</li>
+        <li>Pages visited and time spent on our site</li>
+        <li>Referring website or search engine</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="divider-leaf" />
+
+  <!-- how we use it -->
+  <h2>How we use your information</h2>
+  <div style="background:#f5efe8; border-radius: 28px 8px 28px 8px; padding:1.5rem 2rem; margin: 0.5rem 0 1.8rem;">
+    <div style="display: flex; flex-wrap: wrap; gap: 1.8rem 3rem;">
+      <div><span style="font-weight:600; color:#1f2e21;">📬  respond to inquiries</span><br>We reply to your messages and questions.</div>
+      <div><span style="font-weight:600; color:#1f2e21;">📨  send occasional updates</span><br>Newsletter, garden tips, and seasonal offers.</div>
+      <div><span style="font-weight:600; color:#1f2e21;">📊  improve our content</span><br>Analytics help us understand what you enjoy most.</div>
+      <div><span style="font-weight:600; color:#1f2e21;">🔒  protect our site</span><br>Monitor for fraud, spam, or security issues.</div>
+    </div>
+  </div>
+
+  <!-- cookies & third parties -->
+  <h2>Cookies &amp; third parties</h2>
+  <p>
+    We use essential cookies to keep the site running smoothly, and optional analytics cookies (via a privacy-friendly service) to understand how our content is used. We do not use tracking ads or share data with third-party marketing platforms. You can manage your cookie preferences at any time via our <a href="cookies.html">Cookies Policy</a>.
+  </p>
+
+  <!-- your rights -->
+  <h2>Your rights</h2>
+  <div class="privacy-card" style="background:#ede7dd; border-color:#ccbdaa;">
+    <div style="display: flex; flex-wrap: wrap; gap: 1.5rem 3rem;">
+      <div><strong>🟢  Access</strong><br>Request a copy of your data.</div>
+      <div><strong>🟢  Rectify</strong><br>Update or correct your information.</div>
+      <div><strong>🟢  Erase</strong><br>Ask us to delete your data (right to be forgotten).</div>
+      <div><strong>🟢  Restrict</strong><br>Limit how we use your data.</div>
+    </div>
+    <p style="margin-top:1.2rem; margin-bottom:0; font-size:0.98rem;">
+      To exercise any of these rights, simply <a href="contact.html">contact us</a> — we’ll respond within 30 days.
+    </p>
+  </div>
+
+  <!-- data retention & security -->
+  <h2>Data retention &amp; security</h2>
+  <p>
+    We retain your personal data only for as long as necessary to fulfill the purposes outlined in this policy, or as required by law. We implement appropriate technical and organisational measures to protect your data against unauthorised access, alteration, or loss. Our garden may be open, but our servers are locked.
+  </p>
+
+  <!-- children -->
+  <h2>Children’s privacy</h2>
+  <p>
+    Zenthra Nature Canvas does not knowingly collect information from children under 13. If you believe a child has provided us with personal data, please contact us and we will delete it promptly.
+  </p>
+
+  <!-- updates -->
+  <h2>Updates to this policy</h2>
+  <p>
+    We may update this policy from time to time to reflect changes in our practices or for legal reasons. We’ll post the updated version here and indicate the “last updated” date at the top. We encourage you to review it periodically.
+  </p>
+
+  <!-- contact for privacy -->
+  <div style="background:#d8cdbc; border-radius: 28px 4px 28px 4px; padding:1.2rem 2rem; margin:2rem 0 1rem;">
+    <p style="margin:0; font-size:1.05rem;"><strong>📬  Privacy questions?</strong> — Reach our data protection lead at <a href="mailto:privacy@zenthra.nature" style="border-bottom:2px solid #2f4d2c;">privacy@zenthra.nature</a> or via our <a href="contact.html">contact page</a>.</p>
+  </div>
+
+  <!-- footer -->
+  <footer class="footer">
+    <div>© 2026 Zenthra Nature Canvas · cultivated with care</div>
+    <div>
+      <a href="#">about</a> · 
+      <a href="#">writing</a> · 
+      <a href="#">contact</a>
+    </div>
+  </footer>
+
+</div>
+<!-- end container -->
+</body>
+</html>
