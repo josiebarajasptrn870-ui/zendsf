@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About · Zenthra Nature Canvas</title>
+  <!-- modern serif + sans, unique palette: deep moss, clay, soft sand -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet" />
+  <style>
+    /* ----- reset & base (mirroring index) ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f7f2eb; /* soft sand */
+      color: #2d3e2f; /* deep moss */
+      font-family: 'Inter', sans-serif;
+      line-height: 1.7;
+      padding: 0 1rem;
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      background: #fcf9f5;
+      box-shadow: 0 20px 40px rgba(45, 62, 47, 0.06);
+      border-radius: 2rem 2rem 0 0;
+      padding: 1.8rem 2.2rem 0.5rem;
+    }
+
+    /* ----- typography ----- */
+    h1, h2, h3, h4 {
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+      color: #1f2e21;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.4rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin: 2.2rem 0 0.8rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 3px solid #d8c9b4; /* clay accent */
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin: 1.8rem 0 0.4rem;
+      font-weight: 600;
+    }
+
+    p {
+      margin-bottom: 1.25rem;
+      font-size: 1.08rem;
+      max-width: 70ch;
+    }
+
+    .small-meta {
+      font-size: 0.9rem;
+      color: #5e6f5b;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    a {
+      color: #3f6b3c;
+      text-decoration: none;
+      border-bottom: 1px dotted #b8aa97;
+      transition: border 0.2s;
+    }
+
+    a:hover {
+      border-bottom: 2px solid #2f4d2c;
+    }
+
+    /* ----- header / nav (identical to index) ----- */
+    .blog-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 0.5rem 0 0.2rem;
+      border-bottom: 1px solid #e5dbd0;
+      margin-bottom: 2.4rem;
+    }
+
+    .logo {
+      font-family: 'Merriweather', serif;
+      font-size: 1.9rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #1f3d22;
+      background: #e1d5c4;
+      padding: 0.1rem 1rem 0.1rem 1.2rem;
+      border-radius: 40px 8px 8px 40px;
+      display: inline-block;
+    }
+
+    .logo span {
+      font-weight: 400;
+      color: #4f3f2e;
+      font-size: 0.9rem;
+      margin-left: 0.25rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      font-weight: 500;
+      font-size: 1rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      border-bottom: none;
+      color: #324d32;
+    }
+
+    .nav-links a:hover {
+      border-bottom: 2px solid #9b8a77;
+    }
+
+    /* ----- hero about (content-first) ----- */
+    .about-hero {
+      padding: 0.8rem 0 2rem;
+    }
+
+    .about-hero h1 {
+      font-size: 3.2rem;
+      max-width: 14ch;
+    }
+
+    .about-hero .lead {
+      font-size: 1.3rem;
+      font-weight: 400;
+      max-width: 70ch;
+      margin: 1rem 0 1.8rem;
+      color: #3b503b;
+      border-left: 5px solid #b8aa97;
+      padding-left: 1.5rem;
+    }
+
+    .about-image {
+      margin: 1.8rem 0 2rem;
+      border-radius: 32px;
+      overflow: hidden;
+      background: #d8cdbc;
+      max-height: 220px;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      opacity: 0.9;
+    }
+
+    /* ----- team / values grid (cards) ----- */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 2rem 1.5rem;
+      margin: 2rem 0 1rem;
+    }
+
+    .team-card {
+      background: #fcf9f5;
+      border-radius: 28px 8px 28px 8px;
+      padding: 1.6rem 1.5rem 1.8rem;
+      border: 1px solid #e6dbcf;
+      transition: 0.15s ease;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.01);
+    }
+
+    .team-card:hover {
+      border-color: #b8a48b;
+      box-shadow: 0 12px 24px -12px rgba(60, 80, 50, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .team-card h3 {
+      font-size: 1.3rem;
+      margin: 0.3rem 0 0.1rem;
+      font-family: 'Merriweather', serif;
+    }
+
+    .team-card .role {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #5e6f5b;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .team-card p {
+      font-size: 1rem;
+      margin-bottom: 0.2rem;
+      color: #3b4b38;
+    }
+
+    .timeline-item {
+      border-left: 4px solid #b8aa97;
+      padding-left: 1.8rem;
+      margin: 1.2rem 0;
+    }
+
+    .timeline-item h4 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 0.1rem;
+    }
+
+    .timeline-item .year {
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+      color: #3f5e3a;
+      font-size: 1rem;
+    }
+
+    /* newsletter & footer (matching index) */
+    .newsletter-box {
+      background: #e6dbce;
+      border-radius: 48px 8px 48px 8px;
+      padding: 2rem 2.5rem;
+      margin: 3rem 0 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .newsletter-box h3 {
+      font-family: 'Merriweather', serif;
+      margin: 0;
+      font-size: 1.8rem;
+    }
+
+    .newsletter-box .sub {
+      font-size: 1rem;
+      max-width: 30ch;
+    }
+
+    .newsletter-box input {
+      border: none;
+      padding: 0.8rem 1.2rem;
+      border-radius: 60px;
+      min-width: 220px;
+      background: #fcf9f5;
+      font-size: 1rem;
+      margin: 0.5rem 0;
+    }
+
+    .newsletter-box button {
+      background: #2d462b;
+      border: none;
+      color: white;
+      padding: 0.8rem 2rem;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.1s;
+      margin: 0.5rem 0;
+    }
+
+    .newsletter-box button:hover {
+      background: #1f311f;
+    }
+
+    .footer {
+      margin-top: 3.5rem;
+      padding: 1.8rem 0 1.2rem;
+      border-top: 1px solid #d8cdbc;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      color: #4b5d47;
+    }
+
+    /* responsive */
+    @media (max-width: 700px) {
+      .container { padding: 0.8rem 1rem; }
+      h1 { font-size: 2.2rem; }
+      .about-hero h1 { font-size: 2.4rem; }
+      .blog-header { flex-direction: column; gap: 0.5rem; }
+      .nav-links { gap: 1.2rem; flex-wrap: wrap; }
+      .newsletter-box { flex-direction: column; align-items: stretch; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- header (exactly as index) -->
+  <header class="blog-header">
+    <div class="logo">Zenthra<span>nature canvas</span></div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="terms.html">Terms Of Privacy</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+      <li><a href="cookies.html">Cookies Policy</a></li>
+    </ul>
+  </header>
+
+  <!-- ABOUT HERO -->
+  <section class="about-hero">
+    <h1>Rooted in curiosity,<br /> guided by ecology</h1>
+    <div class="lead">Zenthra Nature Canvas is a space for gardeners, growers, and dreamers who believe that cultivating plants is also a practice of attention, care, and hope.</div>
+
+    <!-- about image (unique visual) -->
+    <div class="about-image">
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1000' height='220' viewBox='0 0 1000 220'%3E%3Crect width='1000' height='220' fill='%23b8a48b'/%3E%3Cpath d='M120 140 Q200 60 280 120 Q360 70 440 130 Q520 80 600 140 Q680 90 760 130 Q840 70 920 120 L920 200 L120 200 Z' fill='%233b5e3a' opacity='0.25'/%3E%3Ccircle cx='180' cy='100' r='28' fill='%235f7a4a' opacity='0.4'/%3E%3Ccircle cx='480' cy='120' r='36' fill='%235f7a4a' opacity='0.3'/%3E%3Ccircle cx='780' cy='90' r='22' fill='%235f7a4a' opacity='0.45'/%3E%3C/svg%3E"
+           alt="Zenthra about — abstract landscape" />
+    </div>
+
+    <p style="font-size:1.15rem; max-width:60ch;"><strong>Founded in 2023</strong> · we are a small collective of ecologists, writers, and hands-on gardeners. Our work bridges traditional knowledge and contemporary ecology, always with an eye toward resilience.</p>
+  </section>
+
+  <!-- OUR STORY / TIMELINE -->
+  <h2>Our story</h2>
+  <div class="timeline-item">
+    <h4><span class="year">2023</span> · First seed</h4>
+    <p>Zenthra began as a shared journal between two friends documenting their experiments with no‑dig beds and native perennials. The first essays were published in autumn.</p>
+  </div>
+  <div class="timeline-item">
+    <h4><span class="year">2024</span> · Growing community</h4>
+    <p>We expanded to include a small network of contributors — from soil scientists to orchard keepers. The site became a living library of practical wisdom.</p>
+  </div>
+  <div class="timeline-item">
+    <h4><span class="year">2025</span> · Field labs</h4>
+    <p>We launched on‑the‑ground trials in three climate zones, sharing real‑time data on polycultures, water‑harvesting, and carbon‑friendly practices.</p>
+  </div>
+  <div class="timeline-item">
+    <h4><span class="year">2026</span> · Deepening</h4>
+    <p>Today, Zenthra is a growing resource for anyone seeking to garden with ecological integrity — and to find meaning in the daily rhythm of growth.</p>
+  </div>
+
+  <!-- TEAM / VALUES -->
+  <h2>Our roots</h2>
+  <div class="team-grid">
+    <div class="team-card">
+      <span class="role">Editor · ecologist</span>
+      <h3>Mira S.</h3>
+      <p>Mira’s work focuses on mycorrhizal networks and soil regeneration. She gardens on a small holding in the Pacific Northwest.</p>
+    </div>
+    <div class="team-card">
+      <span class="role">Writer · grower</span>
+      <h3>James K.</h3>
+      <p>James brings decades of experience in organic market gardening and seed saving. He believes in flavour as a portal to place.</p>
+    </div>
+    <div class="team-card">
+      <span class="role">Design · systems</span>
+      <h3>Lin C.</h3>
+      <p>Lin is a permaculture designer and illustrator. She helps translate complex patterns into clear, beautiful guides.</p>
+    </div>
+    <div class="team-card">
+      <span class="role">Researcher · soil</span>
+      <h3>Dr. Anya R.</h3>
+      <p>Anya studies microbial ecology and teaches at a small university. She contributes deep dives on nutrient cycling and biocarbon.</p>
+    </div>
+  </div>
+
+  <!-- WHAT WE BELIEVE (values) -->
+  <h2>What we stand for</h2>
+  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:1.8rem; margin:1.2rem 0 2rem;">
+    <div style="background:#ede7dd; border-radius:24px 4px 24px 4px; padding:1.2rem 1.5rem;">
+      <h4 style="font-family:'Inter',sans-serif; font-weight:600; font-size:1.1rem;">🌱 soil first</h4>
+      <p style="font-size:0.95rem; margin:0;">Healthy soil is the foundation of all resilient food systems.</p>
+    </div>
+    <div style="background:#ede7dd; border-radius:24px 4px 24px 4px; padding:1.2rem 1.5rem;">
+      <h4 style="font-family:'Inter',sans-serif; font-weight:600; font-size:1.1rem;">🔄 polyculture</h4>
+      <p style="font-size:0.95rem; margin:0;">Diversity — in plants, ideas, and methods — makes ecosystems strong.</p>
+    </div>
+    <div style="background:#ede7dd; border-radius:24px 4px 24px 4px; padding:1.2rem 1.5rem;">
+      <h4 style="font-family:'Inter',sans-serif; font-weight:600; font-size:1.1rem;">📝 open knowledge</h4>
+      <p style="font-size:0.95rem; margin:0;">We share freely, because gardening wisdom belongs to everyone.</p>
+    </div>
+  </div>
+
+  <!-- NEWSLETTER (same as index) -->
+  <div class="newsletter-box">
+    <div>
+      <h3>Field notes</h3>
+      <div class="sub">Weekly essays, seasonal tips, and uncommon wisdom.</div>
+    </div>
+    <div>
+      <input type="email" placeholder="your email" />
+      <button>subscribe</button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>© 2026 Zenthra Nature Canvas · cultivated with care</div>
+    <div>
+      <a href="about.html">about</a> · 
+      <a href="#">writing</a> · 
+      <a href="contact.html">contact</a>
+    </div>
+  </footer>
+
+</div>
+<!-- end container -->
+</body>
+</html>
